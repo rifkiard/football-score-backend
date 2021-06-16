@@ -5,7 +5,7 @@ const dotenv = require("dotenv")
 
 // Import routes
 const authRoute = require("./routes/auth")
-const postRoute = require("./routes/posts")
+const teamRoute = require("./routes/team")
 
 dotenv.config()
 
@@ -18,8 +18,7 @@ mongoose.connect(process.env.DB_CONNECT, () => {
 app.use(express.json())
 
 // Route Middlewares
-
 app.use("/api/user", authRoute)
-app.use("/api/posts", postRoute)
+app.use("/api/team", teamRoute)
 
 app.listen(3000, () => console.log("Server up and running"))
